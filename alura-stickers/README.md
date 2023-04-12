@@ -99,11 +99,64 @@ Chegou o momento de pegarmos os filmes do IMDb e gerar figurinhas com os pôster
 
 1 - Transformar a classe que representa os conteúdos em um Record, disponível a partir do Java 16. 
 
+    public record Conteudo(String titulo, String urlImagem ) {}
+
 2 - Criar as suas próprias exceções e usá-las na classe que implementa o cliente HTTP. 
+
+    catch (IOException | InterruptedException ex) {
+        throw new ClienteHttoException("Erro ao consultar a URL :(");
+    }
+
+    fazemos uma nova classe Exception extanciando a classe mãe
+
+    public class ClienteHttoException extends RuntimeException{
+
+        public ClienteHttoException(String message) {
+            super(message);
+        }
+
+    }
 
 3 - Usar recursos do Java 8 e posterior, como Streams e Lambdas, para mapear uma lista em uma outra. 
 
-4 - Criar uma Enum que une, como configurações, a URL da API e o extrator utilizado. 
+    Codigo do Extrator Nasa
+    return listaDeAtributos.stream()
+        .map(atributos -> new Conteudo(atributos.get("title"),atributos.get("url"))).toList();
+
+    Codigo do Extrator IMDB
+    return listaDeAtributos.stream()
+        .map(atributos -> new Conteudo(atributos.get("title"),atributos.get("image").replaceAll("(@+)(.*).jpg$", "$1.jpg"))).toList();
+
+4 - Criar uma Enum que une, como configurações, a URL da API e o extrator utilizado.
+
+    public enum API {
+        IMDB_TOP_MOVIES("https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json", new ExtratorDeConteudoDoIMDB()),
+        IMDB_TOP_SERIES("https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopTVs.json", new ExtratorDeConteudoDoIMDB()),
+        NASA("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2022-06-12&end_date=2022-06-14", new ExtratorDeConteudoDaNasa());
+
+        private String url;
+        private ExtratorDeConteudo extrator;
+
+        API(String url, ExtratorDeConteudo extrator){
+            this.url = url;
+            this.extrator = extrator;
+        }
+
+        public String getUrl(){
+            return url;
+        }
+
+        public ExtratorDeConteudo getExtrator() {
+            return extrator;
+        }
+
+    }
+
+    mudança no main
+    API api = API.IMDB_TOP_MOVIES;
+        
+    String url = api.getUrl();
+    ExtratorDeConteudo extrator = api.getExtrator();
 
 ## [Aula 4]
 

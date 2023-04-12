@@ -22,8 +22,7 @@ public class ClienteHttp {
             // System.out.println(body);
             
         } catch (IOException | InterruptedException ex) {
-            // TODO: handle exception
-            throw new RuntimeException(ex);
+            throw new ClienteHttoException("Erro ao consultar a URL :(");
         }
         
     }

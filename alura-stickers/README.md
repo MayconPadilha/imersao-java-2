@@ -34,10 +34,15 @@ Mude seu terminal no vscode para o “cmd”
 • Digite o comando para ver o emoji: chcp 65001                
 
 3 - Utilizando variavel de ambiente para esconder chave de acesso. 
+    SET IMDB_API_KEY="variavel que vai ser usada"
+
+    String imdbKey = System.getenv("IMDB_API_KEY");
+    String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json" + imdbKey;
+
 
 ## [Aula 2]
 
-Importando imagens(arquivo local ou url), transformando em uma nova imagem .png com um texto em fundo transparente.
+Nesta segunda aula vamos criar um gerador de figurinhas explorando outras bibliotecas nativas do Java, para que possamos enviar por Whatsapp os nossos filmes preferidos!
 
 ### Desafios Aula 2
 
@@ -85,3 +90,25 @@ Importando imagens(arquivo local ou url), transformando em uma nova imagem .png 
     graphics.setColor(Color.BLACK);
     graphics.draw(outline);
     graphics.setClip(outline);
+
+## [Aula 3]
+
+Chegou o momento de pegarmos os filmes do IMDb e gerar figurinhas com os pôsteres, aproveitando para melhorar nosso código com as refatorações necessárias para torná-lo mais flexível e fácil de entender.
+
+### Desafios Aula 3
+
+1 - Transformar a classe que representa os conteúdos em um Record, disponível a partir do Java 16. 
+
+2 - Criar as suas próprias exceções e usá-las na classe que implementa o cliente HTTP. 
+
+3 - Usar recursos do Java 8 e posterior, como Streams e Lambdas, para mapear uma lista em uma outra. 
+
+4 - Criar uma Enum que une, como configurações, a URL da API e o extrator utilizado. 
+
+## [Aula 4]
+
+Agora vamos construir uma API REST para expor nosso próprio conteúdo, utilizando ferramentas profissionais como o Spring Framework e um banco de dados NoSQL.
+
+## [Aula 5]
+
+Para fechar com chave de ouro, vamos tornar nossa aplicação acessível por qualquer pessoa, fazendo o deploy na nuvem. Além disso, vamos gerar figurinhas a partir do conteúdo dessa nossa API.

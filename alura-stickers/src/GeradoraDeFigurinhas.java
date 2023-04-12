@@ -15,7 +15,7 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 
 public class GeradoraDeFigurinhas {
-
+    
     public void cria(InputStream inputStream, String nomeArquivo, String texto) throws Exception {
 
         // leitura da imagem

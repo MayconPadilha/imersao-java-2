@@ -6,7 +6,7 @@ import java.util.List;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        API api = API.IMDB_TOP_SERIES;
+        API api = API.LINGUAGENS_API;
         
         String url = api.getUrl();
         ExtratorDeConteudo extrator = api.getExtrator();
@@ -24,7 +24,7 @@ public class App {
 
         // for (Map<String, String> conteudo : listaDeConteudos) {
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < conteudos.size(); i++) {
             
             Conteudo conteudo = conteudos.get(i);
 

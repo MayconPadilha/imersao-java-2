@@ -157,11 +157,3 @@ Chegou o momento de pegarmos os filmes do IMDb e gerar figurinhas com os pôster
         
     String url = api.getUrl();
     ExtratorDeConteudo extrator = api.getExtrator();
-
-## [Aula 4]
-
-Agora vamos construir uma API REST para expor nosso próprio conteúdo, utilizando ferramentas profissionais como o Spring Framework e um banco de dados NoSQL.
-
-## [Aula 5]
-
-Para fechar com chave de ouro, vamos tornar nossa aplicação acessível por qualquer pessoa, fazendo o deploy na nuvem. Além disso, vamos gerar figurinhas a partir do conteúdo dessa nossa API.

@@ -6,7 +6,7 @@ import java.util.List;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        API api = API.LINGUAGENS_API;
+        API api = API.IMDB_TOP_SERIES;
         
         String url = api.getUrl();
         ExtratorDeConteudo extrator = api.getExtrator();
@@ -14,7 +14,7 @@ public class App {
         var http = new ClienteHttp();
         String json = http.buscaDados(url);
         
-        var diretorio = new File("saida/"); // nome da pasta
+        var diretorio = new File("alura-stickers/saida/"); // nome da pasta
         diretorio.mkdir(); // cria a pasta
 
         // exibir e manipular os dados
@@ -29,7 +29,7 @@ public class App {
             Conteudo conteudo = conteudos.get(i);
 
             InputStream inputStream = new URL(conteudo.urlImagem()).openStream();
-            String nomeArquivo = "saida/"+conteudo.titulo()+".png";
+            String nomeArquivo = "alura-stickers/saida/"+conteudo.titulo()+".png";
 
             // float rate = Float.parseFloat(conteudo.get("imDbRating"));
             String nome = "Conseguindo";
